@@ -3,7 +3,6 @@
 import argparse
 import glob
 import os
-import numpy as np
 import mlflow
 
 import pandas as pd
@@ -37,7 +36,8 @@ def get_csvs_df(path):
 
 
 def split_data(df):
-    X, y = df[['Pregnancies','PlasmaGlucose','DiastolicBloodPressure','TricepsThickness','SerumInsulin','BMI','DiabetesPedigree','Age']].values, df['Diabetic'].values
+    X, y = df[['Pregnancies', 'PlasmaGlucose', 'DiastolicBloodPressure', 'TricepsThickness', 'SerumInsulin', \
+    'BMI', 'DiabetesPedigree', 'Age']].values, df['Diabetic'].values
     # print(len(X))
     # print(np.unique(y, return_counts=True))
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.30, random_state=0)
@@ -64,6 +64,7 @@ def parse_args():
 
     # return args
     return args
+
 
 # run script
 if __name__ == "__main__":
